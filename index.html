@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaligandaki Law Firm</title>
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family: 'Georgia', serif;
+      background: #fdfaf5;
+      color: #2c2c2c;
+      overflow-x: hidden;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 2px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #7c2d12;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    .hamburger div {
+      width: 25px; height: 3px;
+      background: #333;
+    }
+    @media (max-width: 768px) {
+      nav ul {display: none;flex-direction: column;}
+      nav.active ul {display: flex;position:absolute;top:70px;right:20px;background:#fff;padding:1rem;border:1px solid #ccc;}
+      .hamburger {display: flex;}
+    }
+    section {
+      padding: 6rem 2rem;
+      border-bottom: 1px solid #e0e0e0;
+      animation: fadeInUp 0.8s ease both;
+    }
+    @keyframes fadeInUp {
+      from {opacity:0;transform:translateY(20px)}
+      to {opacity:1;transform:translateY(0)}
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #f8f3eb;
+      text-align: center;
+      position: relative;
+    }
+    .hero h2 {font-size: 2.5rem; margin-bottom: 1rem;}
+    .hero p {max-width: 600px; font-size: 1.1rem;}
+    .about, .portfolio, .testimonials, .booking {max-width: 1100px; margin: auto;}
+    .portfolio-items {display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem;}
+    .portfolio-item {padding:1.5rem; border:1px solid #ccc; background:#fff; transition: transform 0.3s ease;}
+    .portfolio-item:hover {transform: translateY(-5px);}
+    .testimonials blockquote {font-style: italic; margin: 1.5rem 0;}
+    .booking form {display:flex;flex-direction:column;gap:1rem;margin-top:1rem;}
+    .booking input, .booking textarea {padding:0.75rem;border:1px solid #bbb;width:100%;}
+    .booking button {padding:0.75rem;border:none;background:#7c2d12;color:#fff;cursor:pointer;transition:background 0.3s ease;}
+    .booking button:hover {background:#5b1f0d;}
+    footer {padding:2rem;text-align:center;background:#fff;border-top:2px solid #ccc;}
+    canvas#particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
+  </style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+<header>
+  <h1>Kaligandaki Law Firm</h1>
+  <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#booking">Booking</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="hero">
+  <h2>20+ Years of Legal Expertise</h2>
+  <p>Adv. Shiva Prasad Kandel & Adv. Bishnu Kharel — Professional legal services in the heart of Kathmandu with reasonable pricing and trusted representation.</p>
+</section>
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>Kaligandaki Law Firm, located in Maitighar Mandala, Kathmandu, is a dedicated team of professionals providing exceptional legal services. With over two decades of expertise, our lawyers ensure justice and fairness with integrity and professionalism.</p>
+</section>
+<section id="portfolio" class="portfolio">
+  <h2>Practice Areas</h2>
+  <div class="portfolio-items">
+    <div class="portfolio-item">Civil Litigation</div>
+    <div class="portfolio-item">Criminal Defense</div>
+    <div class="portfolio-item">Corporate Law</div>
+    <div class="portfolio-item">Family & Divorce</div>
+  </div>
+</section>
+<section id="testimonials" class="testimonials">
+  <h2>Testimonials</h2>
+  <blockquote>"The most professional and reliable law firm in Kathmandu. They truly care for their clients."</blockquote>
+  <blockquote>"Experienced, efficient, and dedicated to justice."</blockquote>
+</section>
+<section id="booking" class="booking">
+  <h2>Book a Consultation</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="4"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<footer>
+  <p>&copy; 2025 Kaligandaki Law Firm. All rights reserved.</p>
+</footer>
+<script>
+  function toggleMenu(){document.querySelector('nav').classList.toggle('active');}
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  let particles = [];
+  for(let i=0;i<60;i++){
+    particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,dx:(Math.random()-0.5)*1,dy:(Math.random()-0.5)*1,r:2});
+  }
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle="#999";
+      ctx.fill();
+      p.x+=p.dx;p.y+=p.dy;
+      if(p.x<0||p.x>canvas.width) p.dx*=-1;
+      if(p.y<0||p.y>canvas.height) p.dy*=-1;
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+</script>
+</body>
+</html>
