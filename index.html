@@ -1,448 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kaligandaki Law Firm — Kathmandu</title>
-  <meta name="description" content="Kaligandaki Law Firm in Maitighar Mandala, Kathmandu. Advocates: Adv. Shiva Prasad Kandel & Adv. Bishnu Kharel. 20+ years of legal expertise with reasonable pricing." />
-  <meta name="color-scheme" content="light" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaligandaki Law Firm</title>
   <style>
-    /* ---------- Root & Theme ---------- */
-    :root {
-      --bg: #f5efe4;              /* creamy antique */
-      --paper: #fbf7ee;           /* lighter paper tone */
-      --ink: #212121;             /* primary text */
-      --ink-soft: #3a3a3a;        /* secondary text */
-      --accent: #5a4638;          /* antique brown */
-      --accent-2: #977a5a;        /* warm highlight */
-      --line: #cbbda8;            /* hairline divider */
-      --success: #315c2b;
-      --danger: #7a2f2f;
-      --shadow: rgba(0,0,0,.06);
-      --maxw: 1120px;
-      --radius: 0;                /* sharp corners only */
-      --gap: 1.25rem;
-      --transition: 180ms ease;
-    }
-
-    /* ---------- Reset (sharp + minimal) ---------- */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
+    * {margin:0;padding:0;box-sizing:border-box;}
     body {
-      margin: 0; font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif; 
-      color: var(--ink); background: var(--bg);
-      line-height: 1.6; letter-spacing: 0.1px;
-      text-rendering: optimizeLegibility;
+      font-family: 'Georgia', serif;
+      background: #fdfaf5;
+      color: #2c2c2c;
+      overflow-x: hidden;
     }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; background: none; border: 1px solid var(--ink); cursor: pointer; }
-    input, textarea { font: inherit; border: 1px solid var(--line); background: #fff; color: var(--ink); }
-    ::selection { background: #efe2cf; }
-
-    /* ---------- Layout ---------- */
-    .wrap { width: min(100%, var(--maxw)); margin-inline: auto; padding-inline: 1rem; }
-    .section { padding: 5rem 0; position: relative; }
-    .card { background: var(--paper); border: 1px solid var(--line); box-shadow: 0 6px 18px var(--shadow); padding: 1.25rem; border-radius: var(--radius); }
-    .grid { display: grid; gap: var(--gap); }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } }
-
-    /* ---------- Typographic system ---------- */
-    h1, h2, h3, h4 { font-family: Georgia, "Times New Roman", Times, serif; margin: 0 0 .75rem; line-height: 1.2; color: var(--ink); }
-    h1 { font-size: clamp(2rem, 3vw + 1rem, 3.25rem); letter-spacing: 0.5px; }
-    h2 { font-size: clamp(1.4rem, 1.2vw + 1rem, 2rem); letter-spacing: 0.3px; }
-    h3 { font-size: 1.125rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); }
-    p, li { color: var(--ink-soft); }
-    .lead { font-size: clamp(1rem, .6vw + .9rem, 1.125rem); }
-
-    /* ---------- Top Bar / Navigation ---------- */
-    header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(6px); background: rgba(245,239,228,.85); border-bottom: 1px solid var(--line); }
-    .brand { display: flex; align-items: baseline; gap: .75rem; padding: .75rem 0; }
-    .brand__mark { width: 28px; height: 28px; border: 2px solid var(--ink); display: grid; place-items: center; font-weight: 700; }
-    .brand__name { font-family: Georgia, Times, serif; font-size: 1.05rem; letter-spacing: 1px; }
-
-    .nav { display: flex; gap: 1.25rem; align-items: center; }
-    .nav a { padding: .5rem 0; border-bottom: 1px solid transparent; transition: border-color var(--transition); }
-    .nav a:focus-visible, .nav a:hover { border-color: var(--ink); }
-
-    .hamburger { display: none; padding: .55rem .75rem; line-height: 1; }
-    .hamburger:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-    @media (max-width: 800px) {
-      .hamburger { display: inline-block; }
-      nav[aria-label="Primary"] { display: none; }
-      nav[aria-label="Primary"].open { display: block; position: absolute; inset: 100% 0 auto 0; background: var(--paper); border-bottom: 1px solid var(--line); }
-      nav[aria-label="Primary"] .nav { flex-direction: column; align-items: stretch; padding: .75rem 1rem; }
-      nav[aria-label="Primary"] .nav a { padding: .6rem 0; }
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 2px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
     }
-
-    /* ---------- Hero ---------- */
-    .hero { position: relative; min-height: 72vh; display: grid; align-items: center; }
-    .hero .stamp { color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--line); padding: .35rem .55rem; display: inline-block; }
-    .hero .cta { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
-    .btn { padding: .65rem 1rem; border: 1px solid var(--ink); background: linear-gradient(#fff, #f7f1e7); text-transform: uppercase; letter-spacing: 1px; transition: transform var(--transition), box-shadow var(--transition), background var(--transition); }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px var(--shadow); }
-    .btn--ghost { background: transparent; }
-
-    /* ---------- About ---------- */
-    .facts { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--gap); margin-top: 1.25rem; }
-    .fact { padding: 1rem; border: 1px solid var(--line); background: #fff; text-align: center; }
-    .fact b { display: block; font-size: 1.4rem; }
-    @media (max-width: 900px){ .facts { grid-template-columns: repeat(2, 1fr); } }
-
-    /* ---------- Portfolio (Practice Areas) ---------- */
-    .area { border-top: 2px solid var(--ink); padding-top: .75rem; }
-    .area h3 { margin-bottom: .25rem; }
-    .area p { margin: 0; }
-
-    /* ---------- Testimonials ---------- */
-    .testimonial { display: grid; gap: .5rem; border-left: 3px solid var(--accent); padding-left: .75rem; }
-
-    /* ---------- Booking ---------- */
-    form { display: grid; gap: .75rem; }
-    label { font-size: .85rem; letter-spacing: .5px; text-transform: uppercase; color: var(--accent); }
-    input, textarea, select { padding: .7rem .75rem; border-radius: var(--radius); }
-    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-    @media (max-width: 700px){ .row-2 { grid-template-columns: 1fr; } }
-    .notice { font-size: .875rem; color: var(--ink-soft); }
-
-    /* ---------- Footer ---------- */
-    footer { border-top: 1px solid var(--line); background: #f3eadb; }
-    .foot { display: grid; gap: 1rem; grid-template-columns: 1fr auto; align-items: start; }
-    .foot small { color: var(--ink-soft); }
-    @media (max-width: 800px){ .foot { grid-template-columns: 1fr; } }
-
-    /* ---------- Background Particles (Canvas) ---------- */
-    #particles { position: fixed; inset: 0; z-index: -1; }
-
-    /* ---------- Animations & Motion ---------- */
-    .reveal { opacity: 0; transform: translateY(10px); transition: opacity 360ms ease-out, transform 360ms ease-out; }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* prefers-reduced-motion */
-    @media (prefers-reduced-motion: reduce) {
-      .btn, .reveal { transition: none; }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #7c2d12;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    .hamburger div {
+      width: 25px; height: 3px;
+      background: #333;
+    }
+    @media (max-width: 768px) {
+      nav ul {display: none;flex-direction: column;}
+      nav.active ul {display: flex;position:absolute;top:70px;right:20px;background:#fff;padding:1rem;border:1px solid #ccc;}
+      .hamburger {display: flex;}
+    }
+    section {
+      padding: 6rem 2rem;
+      border-bottom: 1px solid #e0e0e0;
+      animation: fadeInUp 0.8s ease both;
+    }
+    @keyframes fadeInUp {
+      from {opacity:0;transform:translateY(20px)}
+      to {opacity:1;transform:translateY(0)}
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #f8f3eb;
+      text-align: center;
+      position: relative;
+    }
+    .hero h2 {font-size: 2.5rem; margin-bottom: 1rem;}
+    .hero p {max-width: 600px; font-size: 1.1rem;}
+    .about, .portfolio, .testimonials, .booking {max-width: 1100px; margin: auto;}
+    .portfolio-items {display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem;}
+    .portfolio-item {padding:1.5rem; border:1px solid #ccc; background:#fff; transition: transform 0.3s ease;}
+    .portfolio-item:hover {transform: translateY(-5px);}
+    .testimonials blockquote {font-style: italic; margin: 1.5rem 0;}
+    .booking form {display:flex;flex-direction:column;gap:1rem;margin-top:1rem;}
+    .booking input, .booking textarea {padding:0.75rem;border:1px solid #bbb;width:100%;}
+    .booking button {padding:0.75rem;border:none;background:#7c2d12;color:#fff;cursor:pointer;transition:background 0.3s ease;}
+    .booking button:hover {background:#5b1f0d;}
+    footer {padding:2rem;text-align:center;background:#fff;border-top:2px solid #ccc;}
+    canvas#particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
   </style>
 </head>
 <body>
-  <!-- Background Particles Canvas -->
-  <canvas id="particles" aria-hidden="true"></canvas>
-
-  <!-- Header / Nav -->
-  <header>
-    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:1rem;">
-      <div class="brand" aria-label="Kaligandaki Law Firm">
-        <div class="brand__mark" aria-hidden="true">KL</div>
-        <div class="brand__name">Kaligandaki Law Firm</div>
-      </div>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">☰</button>
-
-      <nav id="primary-nav" aria-label="Primary">
-        <div class="nav">
-          <a href="#about">About</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#booking">Booking</a>
-          <a href="#footer">Contact</a>
-        </div>
-      </nav>
+<canvas id="particles"></canvas>
+<header>
+  <h1>Kaligandaki Law Firm</h1>
+  <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
     </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero section" id="hero">
-    <div class="wrap">
-      <span class="stamp reveal">Maitighar Mandala · Kathmandu</span>
-      <h1 class="reveal" style="margin-top:.75rem;">Counsel You Can Trust — <em style="font-style:italic; color:var(--accent);">20+ years</em> of Legal Expertise</h1>
-      <p class="lead reveal" style="max-width: 60ch;">A professional group of advocates delivering practical, timely, and affordable legal solutions. Led by <strong>Adv. Shiva Prasad Kandel</strong> and <strong>Adv. Bishnu Kharel</strong>.</p>
-      <div class="cta reveal">
-        <a class="btn" href="#booking">Book a Consultation</a>
-        <a class="btn btn--ghost" href="#portfolio">View Practice Areas</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="wrap grid grid-2">
-      <div class="card reveal">
-        <h2>About Kaligandaki Law Firm</h2>
-        <p>We provide clear, document-first counsel with a commitment to professional integrity and sharp execution. Our approach is thorough, pragmatic, and tailored to each client’s needs.</p>
-        <ul>
-          <li>Office: Maitighar Mandala, Kathmandu, Nepal</li>
-          <li>Advocates: Adv. Shiva Prasad Kandel · Adv. Bishnu Kharel</li>
-          <li>Reasonable, transparent pricing</li>
-          <li>Result-driven documentation and litigation support</li>
-        </ul>
-        <div class="facts">
-          <div class="fact"><b>20+</b> Years Experience</div>
-          <div class="fact"><b>1,000+</b> Matters Handled</div>
-          <div class="fact"><b>95%</b> Client Satisfaction</div>
-          <div class="fact"><b>24–48h</b> Response Time</div>
-        </div>
-      </div>
-      <div class="card reveal">
-        <h2>Why Clients Choose Us</h2>
-        <p>Our documentation style is precise and formal — every clause, annexure, and schedule built for clarity. We balance minimal design with maximum legal substance.</p>
-        <ol>
-          <li><strong>Clarity:</strong> Plain-language briefs and opinions.</li>
-          <li><strong>Rigour:</strong> Diligent research and case strategy.</li>
-          <li><strong>Access:</strong> Consultations online or in-office.</li>
-          <li><strong>Value:</strong> Transparent, reasonable fee structures.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio / Practice Areas -->
-  <section class="section" id="portfolio">
-    <div class="wrap">
-      <h2 class="reveal">Practice Areas</h2>
-      <div class="grid grid-3" style="margin-top:1rem;">
-        <div class="card reveal area">
-          <h3>Civil & Commercial</h3>
-          <p>Contracts, company matters, property disputes, recoveries, arbitration.</p>
-        </div>
-        <div class="card reveal area">
-          <h3>Family & Inheritance</h3>
-          <p>Marriage, divorce, guardianship, succession planning, wills & trusts.</p>
-        </div>
-        <div class="card reveal area">
-          <h3>Criminal Defense</h3>
-          <p>Bail, trial strategy, appeals, white-collar investigation support.</p>
-        </div>
-        <div class="card reveal area">
-          <h3>Labour & Employment</h3>
-          <p>Contracts, compliance, workplace disputes, settlements.</p>
-        </div>
-        <div class="card reveal area">
-          <h3>Administrative & Writs</h3>
-          <p>Judicial review, constitutional remedies, regulatory matters.</p>
-        </div>
-        <div class="card reveal area">
-          <h3>Intellectual Property</h3>
-          <p>Trademarks, copyright, licensing, enforcement strategies.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="section" id="testimonials">
-    <div class="wrap">
-      <h2 class="reveal">Testimonials</h2>
-      <div class="grid grid-3" style="margin-top:1rem;">
-        <div class="card reveal testimonial">
-          <p>“Meticulous documents and steady guidance throughout our case.”</p>
-          <small>— Corporate Client, Kathmandu</small>
-        </div>
-        <div class="card reveal testimonial">
-          <p>“Clear advice, fair pricing, and punctual.”</p>
-          <small>— Individual Client</small>
-        </div>
-        <div class="card reveal testimonial">
-          <p>“Their preparation made all the difference in court.”</p>
-          <small>— Litigation Client</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking -->
-  <section class="section" id="booking">
-    <div class="wrap grid grid-2">
-      <div class="card reveal">
-        <h2>Book a Consultation</h2>
-        <p class="lead">Send us your details and we’ll confirm your consultation within 24–48 hours.</p>
-        <form id="bookForm" novalidate>
-          <div class="row-2">
-            <div>
-              <label for="name">Full Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="name@example.com" required />
-            </div>
-          </div>
-          <div class="row-2">
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="98XXXXXXXX" required />
-            </div>
-            <div>
-              <label for="service">Service</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Select a practice area</option>
-                <option>Civil & Commercial</option>
-                <option>Family & Inheritance</option>
-                <option>Criminal Defense</option>
-                <option>Labour & Employment</option>
-                <option>Administrative & Writs</option>
-                <option>Intellectual Property</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <label for="message">Brief About Your Matter</label>
-            <textarea id="message" name="message" rows="5" placeholder="Share a brief overview…" required></textarea>
-          </div>
-          <div class="notice">By submitting, you agree to be contacted about your inquiry. We maintain strict client confidentiality.</div>
-          <div style="display:flex; gap:.75rem; align-items:center;">
-            <button type="submit" class="btn">Submit Request</button>
-            <span id="formStatus" role="status" aria-live="polite"></span>
-          </div>
-        </form>
-      </div>
-      <div class="card reveal">
-        <h2>Office</h2>
-        <p>Maitighar Mandala, Kathmandu, Nepal</p>
-        <p><strong>Phone:</strong> +977-01-XXXXXXX</p>
-        <p><strong>Email:</strong> office@kaligandaki.law</p>
-        <hr style="border:0; border-top:1px solid var(--line); margin:1rem 0;" />
-        <h3>Hours</h3>
-        <p>Sun–Fri · 10:00–17:00 · By appointment</p>
-        <p>Sat · Closed</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="wrap section" style="padding:2.5rem 0;">
-      <div class="foot">
-        <div>
-          <div class="brand" style="padding:0;">
-            <div class="brand__mark">KL</div>
-            <div class="brand__name">Kaligandaki Law Firm</div>
-          </div>
-          <small>© <span id="year"></span> Kaligandaki Law Firm. All rights reserved.</small>
-        </div>
-        <div style="text-align:right;">
-          <small>Adv. Shiva Prasad Kandel · Adv. Bishnu Kharel</small><br />
-          <small>Maitighar Mandala, Kathmandu</small>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // ---------- Year ----------
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ---------- Mobile Nav ----------
-    const ham = document.getElementById('hamburger');
-    const nav = document.getElementById('primary-nav');
-    ham.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#booking">Booking</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="hero">
+  <h2>20+ Years of Legal Expertise</h2>
+  <p>Adv. Shiva Prasad Kandel & Adv. Bishnu Kharel — Professional legal services in the heart of Kathmandu with reasonable pricing and trusted representation.</p>
+</section>
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>Kaligandaki Law Firm, located in Maitighar Mandala, Kathmandu, is a dedicated team of professionals providing exceptional legal services. With over two decades of expertise, our lawyers ensure justice and fairness with integrity and professionalism.</p>
+</section>
+<section id="portfolio" class="portfolio">
+  <h2>Practice Areas</h2>
+  <div class="portfolio-items">
+    <div class="portfolio-item">Civil Litigation</div>
+    <div class="portfolio-item">Criminal Defense</div>
+    <div class="portfolio-item">Corporate Law</div>
+    <div class="portfolio-item">Family & Divorce</div>
+  </div>
+</section>
+<section id="testimonials" class="testimonials">
+  <h2>Testimonials</h2>
+  <blockquote>"The most professional and reliable law firm in Kathmandu. They truly care for their clients."</blockquote>
+  <blockquote>"Experienced, efficient, and dedicated to justice."</blockquote>
+</section>
+<section id="booking" class="booking">
+  <h2>Book a Consultation</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="4"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<footer>
+  <p>&copy; 2025 Kaligandaki Law Firm. All rights reserved.</p>
+</footer>
+<script>
+  function toggleMenu(){document.querySelector('nav').classList.toggle('active');}
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  let particles = [];
+  for(let i=0;i<60;i++){
+    particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,dx:(Math.random()-0.5)*1,dy:(Math.random()-0.5)*1,r:2});
+  }
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle="#999";
+      ctx.fill();
+      p.x+=p.dx;p.y+=p.dy;
+      if(p.x<0||p.x>canvas.width) p.dx*=-1;
+      if(p.y<0||p.y>canvas.height) p.dy*=-1;
     });
-
-    // Close menu on link click (mobile)
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if (getComputedStyle(ham).display !== 'none') {
-        nav.classList.remove('open');
-        ham.setAttribute('aria-expanded', 'false');
-      }
-    }));
-
-    // ---------- Reveal on Scroll ----------
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // ---------- Lightweight Form Handler (demo only) ----------
-    const form = document.getElementById('bookForm');
-    const statusEl = document.getElementById('formStatus');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const missing = Object.entries(data).filter(([k,v]) => !v);
-      if (missing.length) {
-        statusEl.textContent = 'Please complete all fields.';
-        statusEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--danger');
-        return;
-      }
-      statusEl.textContent = 'Submitted. We will contact you shortly.';
-      statusEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--success');
-      form.reset();
-    });
-
-    // ---------- Background Particles (efficient canvas) ----------
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let dpr = Math.min(window.devicePixelRatio || 1, 2);
-    let W, H, points, animId;
-
-    const cfg = { count: 80, maxVel: 0.15, connectDist: 120, size: 1.6 };
-
-    function resize() {
-      W = canvas.width = Math.floor(innerWidth * dpr);
-      H = canvas.height = Math.floor(innerHeight * dpr);
-      canvas.style.width = innerWidth + 'px';
-      canvas.style.height = innerHeight + 'px';
-      spawn();
-    }
-
-    function spawn() {
-      const n = Math.floor(cfg.count * (innerWidth * innerHeight) / (1440*900));
-      const total = Math.max(30, Math.min(n, 110));
-      points = new Array(total).fill(0).map(() => ({
-        x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() * 2 - 1) * cfg.maxVel * dpr,
-        vy: (Math.random() * 2 - 1) * cfg.maxVel * dpr
-      }));
-    }
-
-    function step() {
-      ctx.clearRect(0,0,W,H);
-      ctx.fillStyle = 'rgba(0,0,0,0.55)';
-      ctx.strokeStyle = 'rgba(0,0,0,0.18)';
-      ctx.lineWidth = 1 * dpr;
-
-      // Move + draw points
-      for (let i=0;i<points.length;i++) {
-        const p = points[i];
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > W) p.vx *= -1;
-        if (p.y < 0 || p.y > H) p.vy *= -1;
-        ctx.beginPath();
-        ctx.rect(p.x, p.y, cfg.size * dpr, cfg.size * dpr); // sharp square particles
-        ctx.fill();
-      }
-
-      // Connect close points
-      for (let i=0;i<points.length;i++) {
-        for (let j=i+1;j<points.length;j++) {
-          const dx = points[i].x - points[j].x;
-          const dy = points[i].y - points[j].y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < cfg.connectDist * dpr) {
-            ctx.globalAlpha = 1 - (dist / (cfg.connectDist * dpr));
-            ctx.beginPath();
-            ctx.moveTo(points[i].x, points[i].y);
-            ctx.lineTo(points[j].x, points[j].y);
-            ctx.stroke();
-            ctx.globalAlpha = 1;
-          }
-        }
-      }
-
-      animId = requestAnimationFrame(step);
-    }
-
-    const media = matchMedia('(prefers-reduced-motion: reduce)');
-    function start() { if (!media.matches) animId = requestAnimationFrame(step); }
-    function stop() { if (animId) cancelAnimationFrame(animId); }
-
-    media.addEventListener('change', () => { media.matches ? stop() : start(); });
-    addEventListener('resize', () => { resize(); });
-    resize(); start();
-  </script>
+    requestAnimationFrame(animate);
+  }
+  animate();
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+</script>
 </body>
 </html>
