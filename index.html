@@ -6,129 +6,118 @@
 <title>Kaligandaki Law Firm — Maitighar Mandala, Kathmandu</title>
 <meta name="description" content="Kaligandaki Law Firm — Adv. Shiva Prasad Kandel & Adv. Bishnu Kharel. 20+ years of experience. Professional, affordable legal representation in Kathmandu." />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#fbf7f0;           /* creamy antique */
+    --bg:#fafafa;
     --paper:#ffffff;
-    --ink:#101214;
-    --muted:#555a60;
-    --accent:#8a6b4a;       /* warm antique brown */
-    --accent-2:#b3936b;
-    --radius:14px;          /* gentle curves */
-    --maxw:1180px;
-    --gap:1.25rem;
+    --ink:#0a0a0a;
+    --muted:#6b7280;
+    --accent:#1e293b;
+    --accent-2:#475569;
+    --radius:12px;
+    --maxw:1200px;
+    --gap:2rem;
     --ease:cubic-bezier(.2,.9,.2,1);
   }
 
-  /* Reset */
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
     margin:0; background:var(--bg); color:var(--ink);
     font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
     -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    line-height:1.5;
+    line-height:1.6;
+    font-weight:300;
   }
   img{max-width:100%;height:auto;display:block;border-radius:8px}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 2.5rem}
 
-  /* Header */
   header{
-    position:sticky; top:0; z-index:60; backdrop-filter: blur(6px);
-    background:linear-gradient(rgba(251,247,240,0.7), rgba(251,247,240,0.5));
-    border-bottom:1px solid rgba(16,18,20,0.06);
+    position:sticky; top:0; z-index:60; backdrop-filter:blur(8px);
+    background:rgba(250,250,250,0.85);
+    border-bottom:1px solid rgba(0,0,0,0.05);
   }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
-  .brand{display:flex;gap:.75rem;align-items:center}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+  .brand{display:flex;gap:1rem;align-items:center}
   .brand-mark{
-    width:44px;height:44px;border-radius:10px;
-    background:linear-gradient(180deg,var(--paper),#faf5ef);
-    border:2px solid rgba(16,18,20,0.06);
-    display:grid;place-items:center;font-weight:700;color:var(--accent);
-    font-family: 'Libre Baskerville', serif;
-    box-shadow: 0 6px 18px rgba(10,10,10,0.04);
+    width:40px;height:40px;border-radius:8px;
+    background:linear-gradient(180deg,var(--paper),#f8f9fa);
+    border:1px solid rgba(0,0,0,0.08);
+    display:grid;place-items:center;font-weight:600;color:var(--accent);
+    font-size:0.9rem;
+    box-shadow:0 4px 12px rgba(0,0,0,0.03);
   }
-  .brand-title{font-family:'Libre Baskerville', serif;font-weight:700;letter-spacing:.6px}
-  nav{display:flex;gap:1.25rem;align-items:center}
-  nav a{padding:.5rem .6rem;border-radius:8px;font-weight:600;color:var(--muted);transition:all .18s var(--ease)}
-  nav a:hover{background:rgba(138,107,74,0.06);color:var(--ink);transform:translateY(-2px)}
-  .cta-primary{background:var(--accent);color:#fff;padding:.55rem .9rem;border-radius:10px;font-weight:700}
-  .cta-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(138,107,74,0.15)}
+  .brand-title{font-family:'Crimson Text', serif;font-weight:600;letter-spacing:0.5px;font-size:1.1rem}
+  nav{display:flex;gap:2rem;align-items:center}
+  nav a{padding:0.5rem 0.75rem;border-radius:6px;font-weight:400;color:var(--muted);transition:all 0.2s var(--ease)}
+  nav a:hover{background:rgba(30,41,59,0.05);color:var(--ink)}
+  .cta-primary{background:var(--accent);color:#fff;padding:0.6rem 1rem;border-radius:8px;font-weight:500;font-size:0.9rem}
+  .cta-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
 
-  /* hamburger */
-  .hamburger{display:none;border:0;background:transparent;padding:.4rem;border-radius:8px}
-  .hamburger svg{width:28px;height:28px}
+  .hamburger{display:none;border:0;background:transparent;padding:0.5rem;border-radius:6px}
+  .hamburger svg{width:24px;height:24px}
   @media (max-width:860px){
     nav{display:none}
     .hamburger{display:inline-flex}
-    .mobile-nav{display:none;position:absolute;right:1rem;top:72px;background:var(--paper);border-radius:12px;padding:1rem;box-shadow:0 20px 40px rgba(12,12,12,.08);width:calc(100% - 2rem);max-width:320px}
-    .mobile-nav a{display:block;padding:.6rem 0;color:var(--muted);border-bottom:1px dashed rgba(16,18,20,.04)}
+    .mobile-nav{display:none;position:absolute;right:2.5rem;top:72px;background:var(--paper);border-radius:12px;padding:1rem;box-shadow:0 20px 40px rgba(0,0,0,0.08);width:calc(100% - 5rem);max-width:280px}
+    .mobile-nav a{display:block;padding:0.75rem 0;color:var(--muted);border-bottom:1px solid rgba(0,0,0,0.05)}
   }
 
-  /* Hero with curve (SVG) */
   .hero{
-    position:relative;padding:4.5rem 0 2.5rem;overflow:visible;
-    display:grid;align-items:center;min-height:68vh;
+    position:relative;padding:5rem 0 3rem;overflow:visible;
+    display:grid;align-items:center;min-height:70vh;
   }
-  .hero-grid{display:grid;grid-template-columns:1fr 480px;gap:2rem;align-items:center;margin-top:0}
+  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:center;margin-top:0}
   @media (max-width:980px){ .hero-grid{grid-template-columns:1fr; } .hero {padding:3.5rem 0} }
 
   .hero-card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,245,238,0.9));
-    padding:2.25rem;border-radius:18px;border:1px solid rgba(16,18,20,.04);
-    box-shadow: 0 12px 30px rgba(10,10,10,.06);
+    background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+    padding:2.5rem;border-radius:16px;border:1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
   }
-  .kicker{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:rgba(138,107,74,.08);color:var(--accent);font-weight:700;font-size:.82rem}
-  h1{font-family:'Libre Baskerville', serif;font-size:clamp(1.6rem,3vw,2.6rem);margin:.6rem 0 0;line-height:1.05;color:var(--ink)}
-  .lead{color:var(--muted);margin-top:.6rem;font-size:1.02rem}
+  .kicker{display:inline-block;padding:0.25rem 0.75rem;border-radius:999px;background:rgba(30,41,59,0.08);color:var(--accent);font-weight:500;font-size:0.8rem;letter-spacing:0.5px}
+  h1{font-family:'Crimson Text', serif;font-size:clamp(2rem,4vw,3rem);margin:0.75rem 0 0;line-height:1.1;color:var(--ink);font-weight:600}
+  .lead{color:var(--muted);margin-top:0.75rem;font-size:1.1rem;font-weight:300}
 
-  /* hero image */
   .hero-media{justify-self:end}
-  .hero-media .photo{border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(10,10,10,0.08)}
-  .partners{display:flex;gap:.5rem;align-items:center;margin-top:.9rem}
-  .partner-mini{width:44px;height:44px;border-radius:8px;overflow:hidden;border:1px solid rgba(16,18,20,.04)}
-  .partner-meta{font-size:.88rem;color:var(--muted);margin-left:.5rem}
+  .hero-media .photo{border-radius:12px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.06)}
+  .partners{display:flex;gap:0.75rem;align-items:center;margin-top:1.5rem}
+  .partner-mini{width:40px;height:40px;border-radius:6px;overflow:hidden;border:1px solid rgba(0,0,0,0.05)}
+  .partner-meta{font-size:0.85rem;color:var(--muted);margin-left:0.5rem}
 
-  /* Sections */
-  section.content{padding:3.5rem 0}
-  .section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem}
-  .section-title{font-family:'Libre Baskerville', serif;font-size:1.4rem}
-  .grid{display:grid;gap:1rem}
+  section.content{padding:4rem 0}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:2rem}
+  .section-title{font-family:'Crimson Text', serif;font-size:1.75rem;font-weight:600;color:var(--ink)}
+  .grid{display:grid;gap:1.5rem}
   .grid-3{grid-template-columns:repeat(3,1fr)}
   .grid-2{grid-template-columns:repeat(2,1fr)}
   @media(max-width:900px){ .grid-3,.grid-2{grid-template-columns:1fr} }
 
-  /* cards */
-  .card{background:var(--paper);padding:1.1rem;border-radius:12px;border:1px solid rgba(16,18,20,0.04);box-shadow:0 10px 24px rgba(10,10,10,0.03)}
-  .area-title{font-weight:700;color:var(--ink);margin-bottom:.5rem}
-  .muted{color:var(--muted);font-size:.95rem}
+  .card{background:var(--paper);padding:1.5rem;border-radius:12px;border:1px solid rgba(0,0,0,0.05);box-shadow:0 6px 16px rgba(0,0,0,0.02)}
+  .area-title{font-weight:500;color:var(--ink);margin-bottom:0.5rem;font-size:1.1rem}
+  .muted{color:var(--muted);font-size:0.95rem;line-height:1.5}
 
-  /* testimonial */
-  .testimonial{padding:1.25rem;border-left:3px solid var(--accent);background:linear-gradient(180deg,#fff,#fbf7f0)}
+  .testimonial{padding:1.5rem;border-left:3px solid var(--accent);background:linear-gradient(180deg,#fff,#f8f9fa)}
 
-  /* booking */
-  form{display:grid;gap:.75rem}
-  label{font-size:.78rem;color:var(--accent);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
-  input,textarea,select{padding:.75rem;border:1px solid rgba(16,18,20,0.06);border-radius:10px;background:#fff}
-  .btn{display:inline-block;padding:.6rem .95rem;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
-  .btn.ghost{background:transparent;border:1px solid rgba(16,18,20,.06);color:var(--ink)}
+  form{display:grid;gap:1rem}
+  label{font-size:0.75rem;color:var(--accent);font-weight:500;letter-spacing:0.5px;text-transform:uppercase}
+  input,textarea,select{padding:0.75rem;border:1px solid rgba(0,0,0,0.08);border-radius:8px;background:#fff;font-weight:300}
+  .btn{display:inline-block;padding:0.75rem 1.25rem;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:500;font-size:0.9rem;cursor:pointer;transition:all 0.2s var(--ease)}
+  .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.1);color:var(--ink)}
 
-  footer{padding:2.25rem 0;border-top:1px solid rgba(16,18,20,.04);background:transparent}
-  .small{font-size:.9rem;color:var(--muted)}
+  footer{padding:2.5rem 0;border-top:1px solid rgba(0,0,0,0.05);background:transparent}
+  .small{font-size:0.9rem;color:var(--muted)}
 
-  /* subtle motion */
-  .fade-up{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+  .fade-up{opacity:0;transform:translateY(10px);transition:opacity 0.6s var(--ease), transform 0.6s var(--ease)}
   .inview{opacity:1;transform:none}
 
-  /* utilities */
-  .stack{display:flex;flex-direction:column;gap:.6rem}
-  .row{display:flex;gap:1rem;align-items:center}
-  .pill{padding:.45rem .7rem;border-radius:999px;background:rgba(138,107,74,.08);color:var(--accent);font-weight:700;font-size:.86rem}
+  .stack{display:flex;flex-direction:column;gap:0.75rem}
+  .row{display:flex;gap:1.5rem;align-items:center}
+  .pill{padding:0.5rem 0.75rem;border-radius:999px;background:rgba(30,41,59,0.08);color:var(--accent);font-weight:500;font-size:0.85rem}
 
-  /* tiny responsive tweaks */
-  @media(max-width:460px){ .hero-grid{gap:1rem} .brand-title{font-size:.98rem} .hero-media{justify-self:center} }
+  @media(max-width:460px){ .hero-grid{gap:1.5rem} .brand-title{font-size:1rem} .hero-media{justify-self:center} }
 </style>
 </head>
 <body>
@@ -139,7 +128,7 @@
       <div class="brand-mark" aria-hidden="true">KL</div>
       <div>
         <div class="brand-title">Kaligandaki Law Firm</div>
-        <div style="font-size:.82rem;color:var(--muted)">Maitighar Mandala · Kathmandu</div>
+        <div style="font-size:0.85rem;color:var(--muted)">Maitighar Mandala · Kathmandu</div>
       </div>
     </div>
 
@@ -152,7 +141,6 @@
       </div>
 
       <button class="hamburger" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu" onclick="toggleMobile()">
-        <!-- simple svg burger -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 7h18M3 12h18M3 17h18"/>
         </svg>
@@ -160,7 +148,6 @@
     </nav>
   </div>
 
-  <!-- mobile nav -->
   <div id="mobileNav" class="mobile-nav" style="display:none;">
     <a href="#about" onclick="closeMobile()">About</a>
     <a href="#areas" onclick="closeMobile()">Practice Areas</a>
@@ -169,20 +156,19 @@
   </div>
 </header>
 
-<!-- HERO with curved divider -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-card fade-up" id="heroText">
-      <div class="kicker">Legal &amp; Advisory</div>
+      <div class="kicker">Legal & Advisory</div>
       <h1>Trusted Counsel — <span style="color:var(--accent-2)">20+ years</span> of proven legal experience</h1>
       <p class="lead muted">Kaligandaki Law Firm — Adv. Shiva Prasad Kandel and Adv. Bishnu Kharel. We provide clear documentation, rigorous representation and fair pricing for both individuals and businesses in Kathmandu.</p>
 
-      <div style="margin-top:1.1rem;display:flex;gap:.8rem;flex-wrap:wrap">
+      <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
         <a class="btn" href="#booking">Book a Consultation</a>
         <a class="btn ghost" href="#areas">Our Practice Areas</a>
       </div>
 
-      <div class="partners" aria-hidden="true" style="margin-top:1rem">
+      <div class="partners" aria-hidden="true" style="margin-top:1.5rem">
         <div class="partner-mini"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=400&auto=format&fit=crop&crop=faces" alt="Advocate photo"></div>
         <div class="partner-mini"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&crop=faces" alt="Advocate photo"></div>
         <div class="partner-meta"><strong>Adv. Shiva Prasad Kandel</strong><br><span class="small muted">Adv. Bishnu Kharel</span></div>
@@ -191,21 +177,18 @@
 
     <div class="hero-media fade-up" id="heroMedia" aria-hidden="true">
       <div class="photo">
-        <!-- Replace this image with a real photo of the office or an elegant legal photo -->
         <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Kaligandaki Law Firm office / legal imagery" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </div>
   </div>
 
-  <!-- decorative curved SVG at bottom of hero -->
-  <div style="margin-top:1.75rem;">
-    <svg viewBox="0 0 1440 120" width="100%" height="80" preserveAspectRatio="none" aria-hidden="true">
+  <div style="margin-top:2rem;">
+    <svg viewBox="0 0 1440 120" width="100%" height="60" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0,40 C240,110 480,10 720,40 C960,70 1200,10 1440,40 L1440 120 L0 120 Z" fill="#fff"></path>
     </svg>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="content wrap">
   <div class="section-head">
     <div>
@@ -215,10 +198,10 @@
     <div class="pill">20+ Years Experience</div>
   </div>
 
-  <div style="margin-top:1rem" class="grid grid-2">
+  <div class="grid grid-2">
     <div class="card fade-up">
       <p class="muted">Located in Maitighar Mandala, Kaligandaki Law Firm is led by Adv. Shiva Prasad Kandel and Adv. Bishnu Kharel. We combine courtroom experience with careful documentation and sensible pricing.</p>
-      <ul style="margin-top:.9rem;color:var(--muted);line-height:1.6">
+      <ul style="margin-top:1rem;color:var(--muted);line-height:1.7">
         <li><strong>Transparent pricing</strong> and clear retainers</li>
         <li><strong>Document-first approach:</strong> contracts, pleadings & schedules</li>
         <li><strong>Personalized strategy:</strong> litigation & advisory</li>
@@ -226,31 +209,30 @@
     </div>
 
     <div class="card fade-up">
-      <h3 style="margin:0 0 .5rem">Office & Contacts</h3>
+      <h3 style="margin:0 0 1rem">Office & Contacts</h3>
       <p class="muted">Maitighar Mandala, Kathmandu, Nepal</p>
       <p class="muted"><strong>Phone:</strong> +977-01-XXXXXXX</p>
       <p class="muted"><strong>Email:</strong> office@kaligandaki.law</p>
-      <div style="margin-top:.75rem">
+      <div style="margin-top:1rem">
         <a href="tel:+977010000000" class="btn" style="display:inline-block">Call Office</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRACTICE AREAS -->
-<section id="areas" class="content wrap" style="background:linear-gradient(180deg, #ffffff, #fbf7f0);border-radius:0 0 22px 22px;">
-  <div class="section-head" style="margin-bottom:.6rem">
+<section id="areas" class="content wrap" style="background:linear-gradient(180deg, #ffffff, #f8f9fa);border-radius:0 0 20px 20px;">
+  <div class="section-head">
     <div class="section-title">Practice Areas</div>
     <div class="small muted">Comprehensive representation for individuals and businesses</div>
   </div>
 
-  <div class="grid grid-3" style="margin-top:1rem">
+  <div class="grid grid-3">
     <div class="card fade-up">
-      <div class="area-title">Civil &amp; Commercial</div>
+      <div class="area-title">Civil & Commercial</div>
       <div class="muted">Contracts, property, dispute resolution, arbitration.</div>
     </div>
     <div class="card fade-up">
-      <div class="area-title">Family &amp; Inheritance</div>
+      <div class="area-title">Family & Inheritance</div>
       <div class="muted">Divorce, guardianship, succession planning, wills.</div>
     </div>
     <div class="card fade-up">
@@ -258,7 +240,7 @@
       <div class="muted">Bail, trial counsel, appeals and investigations.</div>
     </div>
     <div class="card fade-up">
-      <div class="area-title">Labour &amp; Employment</div>
+      <div class="area-title">Labour & Employment</div>
       <div class="muted">Contracts, compliance and workplace disputes.</div>
     </div>
     <div class="card fade-up">
@@ -266,43 +248,41 @@
       <div class="muted">Judicial review, statutory interpretation, regulatory matters.</div>
     </div>
     <div class="card fade-up">
-      <div class="area-title">IP &amp; Trademarks</div>
+      <div class="area-title">IP & Trademarks</div>
       <div class="muted">Trademark registration, copyright, licensing.</div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section id="testimonials" class="content wrap">
   <div class="section-head">
     <div class="section-title">What Clients Say</div>
     <div class="small muted">Real feedback from clients we've helped</div>
   </div>
 
-  <div class="grid grid-3" style="margin-top:1rem">
+  <div class="grid grid-3">
     <div class="card testimonial fade-up">
-      <div style="font-style:italic">“Meticulous preparation — their documentation and court approach made the difference.”</div>
-      <div class="muted" style="margin-top:.6rem">— Corporate Client, Kathmandu</div>
+      <div style="font-style:italic">"Meticulous preparation — their documentation and court approach made the difference."</div>
+      <div class="muted" style="margin-top:0.75rem">— Corporate Client, Kathmandu</div>
     </div>
     <div class="card testimonial fade-up">
-      <div style="font-style:italic">“Clear, honest advice with reasonable fees.”</div>
-      <div class="muted" style="margin-top:.6rem">— Individual Client</div>
+      <div style="font-style:italic">"Clear, honest advice with reasonable fees."</div>
+      <div class="muted" style="margin-top:0.75rem">— Individual Client</div>
     </div>
     <div class="card testimonial fade-up">
-      <div style="font-style:italic">“Responsive and professional — recommended.”</div>
-      <div class="muted" style="margin-top:.6rem">— Litigation Client</div>
+      <div style="font-style:italic">"Responsive and professional — recommended."</div>
+      <div class="muted" style="margin-top:0.75rem">— Litigation Client</div>
     </div>
   </div>
 </section>
 
-<!-- BOOKING -->
 <section id="booking" class="content wrap" style="padding-bottom:4rem">
   <div class="section-head">
     <div class="section-title">Book a Consultation</div>
     <div class="small muted">We reply within 24–48 hours. Confidentiality guaranteed.</div>
   </div>
 
-  <div style="margin-top:1rem" class="grid grid-2">
+  <div class="grid grid-2">
     <div class="card fade-up">
       <form id="bookingForm" novalidate>
         <div class="stack">
@@ -329,10 +309,10 @@
           <label for="message">Brief about your matter</label>
           <textarea id="message" name="message" rows="4" placeholder="Brief summary..." required></textarea>
 
-          <div style="display:flex;gap:.6rem;align-items:center;margin-top:.25rem">
+          <div style="display:flex;gap:0.5rem;align-items:center;margin-top:0.5rem">
             <button class="btn" type="submit">Send Request</button>
             <button class="btn ghost" type="reset">Reset</button>
-            <div id="formMsg" class="muted" aria-live="polite" style="margin-left:.5rem"></div>
+            <div id="formMsg" class="muted" aria-live="polite" style="margin-left:0.5rem"></div>
           </div>
         </div>
       </form>
@@ -342,8 +322,7 @@
       <h3 style="margin-top:0">Office & Directions</h3>
       <p class="muted">Visit us at Maitighar Mandala. Appointments recommended — remote consultations available.</p>
 
-      <!-- small inline map placeholder (replace with iframe Google Maps if desired) -->
-      <div style="margin-top:1rem;border-radius:10px;overflow:hidden;border:1px solid rgba(16,18,20,.04)">
+      <div style="margin-top:1rem;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.05)">
         <img alt="Office location placeholder" src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop">
       </div>
     </div>
@@ -351,31 +330,28 @@
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap">
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:2rem;align-items:center;flex-wrap:wrap">
     <div>
-      <div style="display:flex;align-items:center;gap:.6rem">
-        <div class="brand-mark" aria-hidden="true" style="width:36px;height:36px;font-size:.95rem">KL</div>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="brand-mark" aria-hidden="true" style="width:32px;height:32px;font-size:0.8rem">KL</div>
         <div>
-          <div style="font-weight:700">Kaligandaki Law Firm</div>
+          <div style="font-weight:500">Kaligandaki Law Firm</div>
           <div class="small muted">Adv. Shiva Prasad Kandel · Adv. Bishnu Kharel</div>
         </div>
       </div>
-      <div class="small muted" style="margin-top:.6rem">© <span id="year"></span> Kaligandaki Law Firm — All rights reserved.</div>
+      <div class="small muted" style="margin-top:0.5rem">© <span id="year"></span> Kaligandaki Law Firm — All rights reserved.</div>
     </div>
 
     <div class="small muted">
       <div>Office: Maitighar Mandala, Kathmandu</div>
-      <div style="margin-top:.35rem">Phone: +977-01-XXXXXXX · Email: office@kaligandaki.law</div>
+      <div style="margin-top:0.25rem">Phone: +977-01-XXXXXXX · Email: office@kaligandaki.law</div>
     </div>
   </div>
 </footer>
 
-<!-- Inline icons/examples (SVGs can be used in cards) -->
 <script>
-  // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Mobile nav toggle
   function toggleMobile(){
     const el = document.getElementById('mobileNav');
     const btn = document.querySelector('.hamburger');
@@ -383,27 +359,31 @@
     el.style.display = open ? 'none' : 'block';
     btn.setAttribute('aria-expanded', String(!open));
   }
-  function closeMobile(){ document.getElementById('mobileNav').style.display='none'; document.querySelector('.hamburger').setAttribute('aria-expanded','false'); }
+  function closeMobile(){ 
+    document.getElementById('mobileNav').style.display='none'; 
+    document.querySelector('.hamburger').setAttribute('aria-expanded','false'); 
+  }
 
-  // simple in-view reveal
   const io = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting) e.target.classList.add('inview');
     });
-  }, {threshold: .12});
+  }, {threshold: 0.12});
   document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
 
-  // lightweight form handler (demo)
   document.getElementById('bookingForm').addEventListener('submit', function(e){
     e.preventDefault();
     const data = new FormData(this);
-    for (const [k,v] of data) { if (!v) { document.getElementById('formMsg').textContent = 'Please complete all fields.'; return; } }
-    // Demo UX: show success message. Implement backend/email integration as next step.
+    for (const [k,v] of data) { 
+      if (!v) { 
+        document.getElementById('formMsg').textContent = 'Please complete all fields.'; 
+        return; 
+      } 
+    }
     document.getElementById('formMsg').textContent = 'Request sent. We will contact you within 24–48 hours.';
     this.reset();
   });
 
-  // Accessibility: close mobile menu on outside click
   document.addEventListener('click', (ev) => {
     const mobile = document.getElementById('mobileNav');
     if (!mobile) return;
