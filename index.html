@@ -1,397 +1,1087 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kaligandaki Law Firm — Maitighar Mandala, Kathmandu</title>
-<meta name="description" content="Kaligandaki Law Firm — Adv. Shiva Prasad Kandel & Adv. Bishnu Kharel. 20+ years of experience. Professional, affordable legal representation in Kathmandu." />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#fafafa;
-    --paper:#ffffff;
-    --ink:#0a0a0a;
-    --muted:#6b7280;
-    --accent:#1e293b;
-    --accent-2:#475569;
-    --radius:12px;
-    --maxw:1200px;
-    --gap:2rem;
-    --ease:cubic-bezier(.2,.9,.2,1);
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaligandaki Law Firm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    line-height:1.6;
-    font-weight:300;
-  }
-  img{max-width:100%;height:auto;display:block;border-radius:8px}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 2.5rem}
+        :root {
+            --cream: #f8f4e9;
+            --dark-brown: #3a2c1e;
+            --gold: #b89f72;
+            --light-gold: #d6c9b3;
+            --dark-gold: #8b7448;
+        }
 
-  header{
-    position:sticky; top:0; z-index:60; backdrop-filter:blur(8px);
-    background:rgba(250,250,250,0.85);
-    border-bottom:1px solid rgba(0,0,0,0.05);
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
-  .brand{display:flex;gap:1rem;align-items:center}
-  .brand-mark{
-    width:40px;height:40px;border-radius:8px;
-    background:linear-gradient(180deg,var(--paper),#f8f9fa);
-    border:1px solid rgba(0,0,0,0.08);
-    display:grid;place-items:center;font-weight:600;color:var(--accent);
-    font-size:0.9rem;
-    box-shadow:0 4px 12px rgba(0,0,0,0.03);
-  }
-  .brand-title{font-family:'Crimson Text', serif;font-weight:600;letter-spacing:0.5px;font-size:1.1rem}
-  nav{display:flex;gap:2rem;align-items:center}
-  nav a{padding:0.5rem 0.75rem;border-radius:6px;font-weight:400;color:var(--muted);transition:all 0.2s var(--ease)}
-  nav a:hover{background:rgba(30,41,59,0.05);color:var(--ink)}
-  .cta-primary{background:var(--accent);color:#fff;padding:0.6rem 1rem;border-radius:8px;font-weight:500;font-size:0.9rem}
-  .cta-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-  .hamburger{display:none;border:0;background:transparent;padding:0.5rem;border-radius:6px}
-  .hamburger svg{width:24px;height:24px}
-  @media (max-width:860px){
-    nav{display:none}
-    .hamburger{display:inline-flex}
-    .mobile-nav{display:none;position:absolute;right:2.5rem;top:72px;background:var(--paper);border-radius:12px;padding:1rem;box-shadow:0 20px 40px rgba(0,0,0,0.08);width:calc(100% - 5rem);max-width:280px}
-    .mobile-nav a{display:block;padding:0.75rem 0;color:var(--muted);border-bottom:1px solid rgba(0,0,0,0.05)}
-  }
+        /* Particle Canvas Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
 
-  .hero{
-    position:relative;padding:5rem 0 3rem;overflow:visible;
-    display:grid;align-items:center;min-height:70vh;
-  }
-  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:center;margin-top:0}
-  @media (max-width:980px){ .hero-grid{grid-template-columns:1fr; } .hero {padding:3.5rem 0} }
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
 
-  .hero-card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
-    padding:2.5rem;border-radius:16px;border:1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-  }
-  .kicker{display:inline-block;padding:0.25rem 0.75rem;border-radius:999px;background:rgba(30,41,59,0.08);color:var(--accent);font-weight:500;font-size:0.8rem;letter-spacing:0.5px}
-  h1{font-family:'Crimson Text', serif;font-size:clamp(2rem,4vw,3rem);margin:0.75rem 0 0;line-height:1.1;color:var(--ink);font-weight:600}
-  .lead{color:var(--muted);margin-top:0.75rem;font-size:1.1rem;font-weight:300}
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-brown);
+        }
 
-  .hero-media{justify-self:end}
-  .hero-media .photo{border-radius:12px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,0.06)}
-  .partners{display:flex;gap:0.75rem;align-items:center;margin-top:1.5rem}
-  .partner-mini{width:40px;height:40px;border-radius:6px;overflow:hidden;border:1px solid rgba(0,0,0,0.05)}
-  .partner-meta{font-size:0.85rem;color:var(--muted);margin-left:0.5rem}
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
 
-  section.content{padding:4rem 0}
-  .section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:2rem}
-  .section-title{font-family:'Crimson Text', serif;font-size:1.75rem;font-weight:600;color:var(--ink)}
-  .grid{display:grid;gap:1.5rem}
-  .grid-3{grid-template-columns:repeat(3,1fr)}
-  .grid-2{grid-template-columns:repeat(2,1fr)}
-  @media(max-width:900px){ .grid-3,.grid-2{grid-template-columns:1fr} }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+        }
 
-  .card{background:var(--paper);padding:1.5rem;border-radius:12px;border:1px solid rgba(0,0,0,0.05);box-shadow:0 6px 16px rgba(0,0,0,0.02)}
-  .area-title{font-weight:500;color:var(--ink);margin-bottom:0.5rem;font-size:1.1rem}
-  .muted{color:var(--muted);font-size:0.95rem;line-height:1.5}
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
 
-  .testimonial{padding:1.5rem;border-left:3px solid var(--accent);background:linear-gradient(180deg,#fff,#f8f9fa)}
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
 
-  form{display:grid;gap:1rem}
-  label{font-size:0.75rem;color:var(--accent);font-weight:500;letter-spacing:0.5px;text-transform:uppercase}
-  input,textarea,select{padding:0.75rem;border:1px solid rgba(0,0,0,0.08);border-radius:8px;background:#fff;font-weight:300}
-  .btn{display:inline-block;padding:0.75rem 1.25rem;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:500;font-size:0.9rem;cursor:pointer;transition:all 0.2s var(--ease)}
-  .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.1);color:var(--ink)}
+        /* Header & Navigation */
+        header {
+            background-color: var(--cream);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(58, 44, 30, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+            transition: padding 0.3s ease;
+        }
 
-  footer{padding:2.5rem 0;border-top:1px solid rgba(0,0,0,0.05);background:transparent}
-  .small{font-size:0.9rem;color:var(--muted)}
+        header.scrolled {
+            padding: 1rem 0;
+        }
 
-  .fade-up{opacity:0;transform:translateY(10px);transition:opacity 0.6s var(--ease), transform 0.6s var(--ease)}
-  .inview{opacity:1;transform:none}
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  .stack{display:flex;flex-direction:column;gap:0.75rem}
-  .row{display:flex;gap:1.5rem;align-items:center}
-  .pill{padding:0.5rem 0.75rem;border-radius:999px;background:rgba(30,41,59,0.08);color:var(--accent);font-weight:500;font-size:0.85rem}
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--dark-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
 
-  @media(max-width:460px){ .hero-grid{gap:1.5rem} .brand-title{font-size:1rem} .hero-media{justify-self:center} }
-</style>
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark-brown);
+            transition: all 0.3s ease;
+        }
+
+        /* Sections General */
+        section {
+            padding: 6rem 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f4e9"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23d6c9b3" stroke-width="1"/></svg>');
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--dark-gold);
+            margin-bottom: 2rem;
+        }
+
+        .divider {
+            width: 150px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 2rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px solid var(--dark-brown);
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--dark-brown);
+        }
+
+        .btn:hover:before {
+            left: 0;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(58, 44, 30, 0.1);
+        }
+
+        .lawyers-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lawyer-card {
+            width: 280px;
+            padding: 2rem;
+            background-color: var(--cream);
+            box-shadow: 0 5px 15px rgba(58, 44, 30, 0.1);
+            border: 1px solid var(--light-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lawyer-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gold);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+        }
+
+        .lawyer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(58, 44, 30, 0.15);
+        }
+
+        .lawyer-card:hover:before {
+            transform: scaleY(1);
+        }
+
+        .lawyer-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 3px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .lawyer-card:hover .lawyer-image {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .lawyer-name {
+            font-size: 1.5rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--dark-brown);
+        }
+
+        .lawyer-title {
+            color: var(--dark-gold);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background-color: #fff;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(58, 44, 30, 0.1);
+            border: 1px solid var(--light-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(58, 44, 30, 0.15);
+        }
+
+        .portfolio-item:hover:before {
+            transform: scaleX(1);
+        }
+
+        .portfolio-item h3 {
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-item:hover h3 {
+            color: var(--gold);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(58, 44, 30, 0.1);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .testimonial {
+            padding: 2rem;
+            background-color: var(--cream);
+            box-shadow: 0 5px 15px rgba(58, 44, 30, 0.1);
+            border: 1px solid var(--light-gold);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(58, 44, 30, 0.15);
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+            border: 2px solid var(--gold);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding: 0 1.5rem;
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--gold);
+            position: absolute;
+            line-height: 1;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-text:before {
+            top: -0.5rem;
+            left: 0;
+        }
+
+        .testimonial-text:after {
+            bottom: -2rem;
+            right: 0;
+        }
+
+        .testimonial:hover .testimonial-text:before,
+        .testimonial:hover .testimonial-text:after {
+            opacity: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        .testimonial-role {
+            color: var(--dark-gold);
+            font-size: 0.9rem;
+        }
+
+        /* Booking Section */
+        .booking-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background-color: #fff;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(58, 44, 30, 0.1);
+            border: 1px solid var(--light-gold);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .booking-form:hover {
+            box-shadow: 0 15px 30px rgba(58, 44, 30, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--light-gold);
+            background-color: var(--cream);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(184, 159, 114, 0.2);
+        }
+
+        .form-group:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .form-group:focus-within:after {
+            transform: scaleX(1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .contact-info {
+            margin: 1.5rem 0;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--dark-brown);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: var(--cream);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-gold);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-brown);
+            color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--cream);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(58, 44, 30, 0.1);
+                padding: 1rem 0;
+                z-index: 999;
+                border-top: 2px solid var(--gold);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1.5rem 0;
+            }
+
+            section {
+                padding: 5rem 0;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
 
-<header>
-  <div class="wrap nav-inner">
-    <div class="brand">
-      <div class="brand-mark" aria-hidden="true">KL</div>
-      <div>
-        <div class="brand-title">Kaligandaki Law Firm</div>
-        <div style="font-size:0.85rem;color:var(--muted)">Maitighar Mandala · Kathmandu</div>
-      </div>
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
     </div>
 
-    <nav role="navigation" aria-label="Main navigation">
-      <div class="desktop-links">
-        <a href="#about">About</a>
-        <a href="#areas">Practice Areas</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#booking" class="cta-primary">Book Consultation</a>
-      </div>
-
-      <button class="hamburger" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu" onclick="toggleMobile()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 7h18M3 12h18M3 17h18"/>
-        </svg>
-      </button>
-    </nav>
-  </div>
-
-  <div id="mobileNav" class="mobile-nav" style="display:none;">
-    <a href="#about" onclick="closeMobile()">About</a>
-    <a href="#areas" onclick="closeMobile()">Practice Areas</a>
-    <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
-    <a href="#booking" onclick="closeMobile()">Book Consultation</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-card fade-up" id="heroText">
-      <div class="kicker">Legal & Advisory</div>
-      <h1>Trusted Counsel — <span style="color:var(--accent-2)">20+ years</span> of proven legal experience</h1>
-      <p class="lead muted">Kaligandaki Law Firm — Adv. Shiva Prasad Kandel and Adv. Bishnu Kharel. We provide clear documentation, rigorous representation and fair pricing for both individuals and businesses in Kathmandu.</p>
-
-      <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
-        <a class="btn" href="#booking">Book a Consultation</a>
-        <a class="btn ghost" href="#areas">Our Practice Areas</a>
-      </div>
-
-      <div class="partners" aria-hidden="true" style="margin-top:1.5rem">
-        <div class="partner-mini"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=400&auto=format&fit=crop&crop=faces" alt="Advocate photo"></div>
-        <div class="partner-mini"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&crop=faces" alt="Advocate photo"></div>
-        <div class="partner-meta"><strong>Adv. Shiva Prasad Kandel</strong><br><span class="small muted">Adv. Bishnu Kharel</span></div>
-      </div>
-    </div>
-
-    <div class="hero-media fade-up" id="heroMedia" aria-hidden="true">
-      <div class="photo">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Kaligandaki Law Firm office / legal imagery" style="width:100%;height:100%;object-fit:cover;">
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top:2rem;">
-    <svg viewBox="0 0 1440 120" width="100%" height="60" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,40 C240,110 480,10 720,40 C960,70 1200,10 1440,40 L1440 120 L0 120 Z" fill="#fff"></path>
-    </svg>
-  </div>
-</section>
-
-<section id="about" class="content wrap">
-  <div class="section-head">
-    <div>
-      <div class="section-title">About Kaligandaki Law Firm</div>
-      <div class="muted">Professional, principled, and practical legal counsel in Kathmandu.</div>
-    </div>
-    <div class="pill">20+ Years Experience</div>
-  </div>
-
-  <div class="grid grid-2">
-    <div class="card fade-up">
-      <p class="muted">Located in Maitighar Mandala, Kaligandaki Law Firm is led by Adv. Shiva Prasad Kandel and Adv. Bishnu Kharel. We combine courtroom experience with careful documentation and sensible pricing.</p>
-      <ul style="margin-top:1rem;color:var(--muted);line-height:1.7">
-        <li><strong>Transparent pricing</strong> and clear retainers</li>
-        <li><strong>Document-first approach:</strong> contracts, pleadings & schedules</li>
-        <li><strong>Personalized strategy:</strong> litigation & advisory</li>
-      </ul>
-    </div>
-
-    <div class="card fade-up">
-      <h3 style="margin:0 0 1rem">Office & Contacts</h3>
-      <p class="muted">Maitighar Mandala, Kathmandu, Nepal</p>
-      <p class="muted"><strong>Phone:</strong> +977-01-XXXXXXX</p>
-      <p class="muted"><strong>Email:</strong> office@kaligandaki.law</p>
-      <div style="margin-top:1rem">
-        <a href="tel:+977010000000" class="btn" style="display:inline-block">Call Office</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="areas" class="content wrap" style="background:linear-gradient(180deg, #ffffff, #f8f9fa);border-radius:0 0 20px 20px;">
-  <div class="section-head">
-    <div class="section-title">Practice Areas</div>
-    <div class="small muted">Comprehensive representation for individuals and businesses</div>
-  </div>
-
-  <div class="grid grid-3">
-    <div class="card fade-up">
-      <div class="area-title">Civil & Commercial</div>
-      <div class="muted">Contracts, property, dispute resolution, arbitration.</div>
-    </div>
-    <div class="card fade-up">
-      <div class="area-title">Family & Inheritance</div>
-      <div class="muted">Divorce, guardianship, succession planning, wills.</div>
-    </div>
-    <div class="card fade-up">
-      <div class="area-title">Criminal Defense</div>
-      <div class="muted">Bail, trial counsel, appeals and investigations.</div>
-    </div>
-    <div class="card fade-up">
-      <div class="area-title">Labour & Employment</div>
-      <div class="muted">Contracts, compliance and workplace disputes.</div>
-    </div>
-    <div class="card fade-up">
-      <div class="area-title">Administrative & Writs</div>
-      <div class="muted">Judicial review, statutory interpretation, regulatory matters.</div>
-    </div>
-    <div class="card fade-up">
-      <div class="area-title">IP & Trademarks</div>
-      <div class="muted">Trademark registration, copyright, licensing.</div>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials" class="content wrap">
-  <div class="section-head">
-    <div class="section-title">What Clients Say</div>
-    <div class="small muted">Real feedback from clients we've helped</div>
-  </div>
-
-  <div class="grid grid-3">
-    <div class="card testimonial fade-up">
-      <div style="font-style:italic">"Meticulous preparation — their documentation and court approach made the difference."</div>
-      <div class="muted" style="margin-top:0.75rem">— Corporate Client, Kathmandu</div>
-    </div>
-    <div class="card testimonial fade-up">
-      <div style="font-style:italic">"Clear, honest advice with reasonable fees."</div>
-      <div class="muted" style="margin-top:0.75rem">— Individual Client</div>
-    </div>
-    <div class="card testimonial fade-up">
-      <div style="font-style:italic">"Responsive and professional — recommended."</div>
-      <div class="muted" style="margin-top:0.75rem">— Litigation Client</div>
-    </div>
-  </div>
-</section>
-
-<section id="booking" class="content wrap" style="padding-bottom:4rem">
-  <div class="section-head">
-    <div class="section-title">Book a Consultation</div>
-    <div class="small muted">We reply within 24–48 hours. Confidentiality guaranteed.</div>
-  </div>
-
-  <div class="grid grid-2">
-    <div class="card fade-up">
-      <form id="bookingForm" novalidate>
-        <div class="stack">
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" required placeholder="Your full name">
-
-          <label for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="name@example.com">
-
-          <label for="phone">Phone (WhatsApp preferred)</label>
-          <input id="phone" name="phone" type="tel" placeholder="98XXXXXXXX">
-
-          <label for="service">Service / Practice area</label>
-          <select id="service" name="service" required>
-            <option value="">Choose</option>
-            <option>Civil & Commercial</option>
-            <option>Family & Inheritance</option>
-            <option>Criminal Defense</option>
-            <option>Labour & Employment</option>
-            <option>Administrative & Writs</option>
-            <option>IP & Trademarks</option>
-          </select>
-
-          <label for="message">Brief about your matter</label>
-          <textarea id="message" name="message" rows="4" placeholder="Brief summary..." required></textarea>
-
-          <div style="display:flex;gap:0.5rem;align-items:center;margin-top:0.5rem">
-            <button class="btn" type="submit">Send Request</button>
-            <button class="btn ghost" type="reset">Reset</button>
-            <div id="formMsg" class="muted" aria-live="polite" style="margin-left:0.5rem"></div>
-          </div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Kaligandaki<span>Law</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Practice Areas</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#booking">Consultation</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
         </div>
-      </form>
-    </div>
+    </header>
 
-    <div class="card fade-up">
-      <h3 style="margin-top:0">Office & Directions</h3>
-      <p class="muted">Visit us at Maitighar Mandala. Appointments recommended — remote consultations available.</p>
-
-      <div style="margin-top:1rem;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.05)">
-        <img alt="Office location placeholder" src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop">
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;gap:2rem;align-items:center;flex-wrap:wrap">
-    <div>
-      <div style="display:flex;align-items:center;gap:1rem">
-        <div class="brand-mark" aria-hidden="true" style="width:32px;height:32px;font-size:0.8rem">KL</div>
-        <div>
-          <div style="font-weight:500">Kaligandaki Law Firm</div>
-          <div class="small muted">Adv. Shiva Prasad Kandel · Adv. Bishnu Kharel</div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Kaligandaki Law Firm</h1>
+                <p class="hero-subtitle">Professional Legal Excellence Since 2003</p>
+                <div class="divider"></div>
+                <p>With over 20 years of experience, our team of expert lawyers provides exceptional legal services with reasonable pricing and unwavering dedication to our clients.</p>
+                <a href="#booking" class="btn">Schedule a Consultation</a>
+            </div>
         </div>
-      </div>
-      <div class="small muted" style="margin-top:0.5rem">© <span id="year"></span> Kaligandaki Law Firm — All rights reserved.</div>
-    </div>
+    </section>
 
-    <div class="small muted">
-      <div>Office: Maitighar Mandala, Kathmandu</div>
-      <div style="margin-top:0.25rem">Phone: +977-01-XXXXXXX · Email: office@kaligandaki.law</div>
-    </div>
-  </div>
-</footer>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-content">
+                <h2>About Our Firm</h2>
+                <p>Located in the heart of Maitighar Mandala, Kathmandu, Kaligandaki Law Firm has been serving clients with integrity and excellence for over two decades. Our team combines extensive legal knowledge with a deep understanding of our clients' needs.</p>
+                
+                <div class="lawyers-container">
+                    <div class="lawyer-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Adv. Shiva Prasad Kandel" class="lawyer-image">
+                        <h3 class="lawyer-name">Adv. Shiva Prasad Kandel</h3>
+                        <p class="lawyer-title">Senior Legal Expert</p>
+                        <p>With 20+ years of experience in civil and corporate law, Adv. Kandel has successfully represented clients in numerous high-profile cases.</p>
+                    </div>
+                    
+                    <div class="lawyer-card">
+                        <img src="https://images.unsplash.com/photo-1590086782792-42dd2350140d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Adv. Bishnu Kharel" class="lawyer-image">
+                        <h3 class="lawyer-name">Adv. Bishnu Kharel</h3>
+                        <p class="lawyer-title">Criminal Law Specialist</p>
+                        <p>Adv. Kharel specializes in criminal defense and has a remarkable track record of achieving favorable outcomes for his clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-content">
+                <h2>Our Practice Areas</h2>
+                <p>We offer comprehensive legal services across various domains, ensuring our clients receive expert guidance tailored to their specific needs.</p>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <h3>Corporate Law</h3>
+                        <p>Business formation, contracts, compliance, mergers and acquisitions, and intellectual property protection.</p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Criminal Defense</h3>
+                        <p>Expert representation in criminal cases, ensuring your rights are protected throughout the legal process.</p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Family Law</h3>
+                        <p>Divorce, child custody, adoption, and other family-related legal matters handled with sensitivity and expertise.</p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Real Estate Law</h3>
+                        <p>Property transactions, land disputes, leasing agreements, and property registration services.</p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Immigration Law</h3>
+                        <p>Visa applications, residency permits, citizenship matters, and immigration-related legal support.</p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <h3>Civil Litigation</h3>
+                        <p>Representation in civil disputes, contract disagreements, and other non-criminal legal matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  function toggleMobile(){
-    const el = document.getElementById('mobileNav');
-    const btn = document.querySelector('.hamburger');
-    const open = el.style.display === 'block';
-    el.style.display = open ? 'none' : 'block';
-    btn.setAttribute('aria-expanded', String(!open));
-  }
-  function closeMobile(){ 
-    document.getElementById('mobileNav').style.display='none'; 
-    document.querySelector('.hamburger').setAttribute('aria-expanded','false'); 
-  }
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-content">
+                <h2>Client Testimonials</h2>
+                <p>Hear what our clients have to say about their experience with Kaligandaki Law Firm.</p>
+                
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80" alt="Rajesh Sharma" class="testimonial-image">
+                        <p class="testimonial-text">Adv. Kandel represented me in a complex business dispute and achieved a favorable outcome. His expertise and dedication were evident throughout the process.</p>
+                        <p class="testimonial-author">Rajesh Sharma</p>
+                        <p class="testimonial-role">Business Owner</p>
+                    </div>
+                </div>
 
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('inview');
-    });
-  }, {threshold: 0.12});
-  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+                <div class="testimonial-slider" style="margin-top: 2rem;">
+                    <div class="testimonial">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&q=80" alt="Sita Gurung" class="testimonial-image">
+                        <p class="testimonial-text">Adv. Kharel provided exceptional representation in my case. His attention to detail and thorough understanding of the law made all the difference.</p>
+                        <p class="testimonial-author">Sita Gurung</p>
+                        <p class="testimonial-role">Client</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  document.getElementById('bookingForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const data = new FormData(this);
-    for (const [k,v] of data) { 
-      if (!v) { 
-        document.getElementById('formMsg').textContent = 'Please complete all fields.'; 
-        return; 
-      } 
-    }
-    document.getElementById('formMsg').textContent = 'Request sent. We will contact you within 24–48 hours.';
-    this.reset();
-  });
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="section-content">
+                <h2>Schedule a Consultation</h2>
+                <p>Contact us today to discuss your legal needs. Our team will respond promptly to arrange a consultation at your convenience.</p>
+                
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Area of Interest</label>
+                        <select id="service" required>
+                            <option value="">Select a service</option>
+                            <option value="corporate">Corporate Law</option>
+                            <option value="criminal">Criminal Defense</option>
+                            <option value="family">Family Law</option>
+                            <option value="realestate">Real Estate Law</option>
+                            <option value="immigration">Immigration Law</option>
+                            <option value="civil">Civil Litigation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-  document.addEventListener('click', (ev) => {
-    const mobile = document.getElementById('mobileNav');
-    if (!mobile) return;
-    if (mobile.style.display === 'block' && !mobile.contains(ev.target) && !ev.target.closest('.hamburger')) {
-      mobile.style.display = 'none';
-      document.querySelector('.hamburger').setAttribute('aria-expanded','false');
-    }
-  });
-</script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Kaligandaki<span>Law</span></div>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Maitighar Mandala, Kathmandu, Nepal</p>
+                    <p><i class="fas fa-phone"></i> +977-1-4567890 | +977-9851012345</p>
+                    <p><i class="fas fa-envelope"></i> info@kaligandakilaw.com</p>
+                </div>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+                <p>© 2023 Kaligandaki Law Firm. All rights reserved.</p>
+                
+                <div class="copyright">
+                    <p>Disclaimer: This website is for informational purposes only and does not constitute legal advice.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top functionality
+        const scrollBtn = document.querySelector(".scroll-top");
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add("active");
+            } else {
+                scrollBtn.classList.remove("active");
+            }
+        });
+
+        scrollBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Section reveal animation
+        function revealSections() {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 30,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#b89f72"
+                },
+                shape: {
+                    type: "polygon",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 4
+                    }
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#d6c9b3",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Form Submission
+        const form = document.querySelector('.booking-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry. We will contact you shortly to schedule your consultation.');
+            form.reset();
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
