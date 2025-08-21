@@ -1,172 +1,417 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaligandaki Law Firm</title>
-  <style>
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {
-      font-family: 'Georgia', serif;
-      background: #fdfaf5;
-      color: #2c2c2c;
-      overflow-x: hidden;
-    }
-    header {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: #fff;
-      border-bottom: 2px solid #ccc;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      z-index: 1000;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    nav ul {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-    nav a {
-      text-decoration: none;
-      color: #2c2c2c;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #7c2d12;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 4px;
-    }
-    .hamburger div {
-      width: 25px; height: 3px;
-      background: #333;
-    }
-    @media (max-width: 768px) {
-      nav ul {display: none;flex-direction: column;}
-      nav.active ul {display: flex;position:absolute;top:70px;right:20px;background:#fff;padding:1rem;border:1px solid #ccc;}
-      .hamburger {display: flex;}
-    }
-    section {
-      padding: 6rem 2rem;
-      border-bottom: 1px solid #e0e0e0;
-      animation: fadeInUp 0.8s ease both;
-    }
-    @keyframes fadeInUp {
-      from {opacity:0;transform:translateY(20px)}
-      to {opacity:1;transform:translateY(0)}
-    }
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background: #f8f3eb;
-      text-align: center;
-      position: relative;
-    }
-    .hero h2 {font-size: 2.5rem; margin-bottom: 1rem;}
-    .hero p {max-width: 600px; font-size: 1.1rem;}
-    .about, .portfolio, .testimonials, .booking {max-width: 1100px; margin: auto;}
-    .portfolio-items {display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem;}
-    .portfolio-item {padding:1.5rem; border:1px solid #ccc; background:#fff; transition: transform 0.3s ease;}
-    .portfolio-item:hover {transform: translateY(-5px);}
-    .testimonials blockquote {font-style: italic; margin: 1.5rem 0;}
-    .booking form {display:flex;flex-direction:column;gap:1rem;margin-top:1rem;}
-    .booking input, .booking textarea {padding:0.75rem;border:1px solid #bbb;width:100%;}
-    .booking button {padding:0.75rem;border:none;background:#7c2d12;color:#fff;cursor:pointer;transition:background 0.3s ease;}
-    .booking button:hover {background:#5b1f0d;}
-    footer {padding:2rem;text-align:center;background:#fff;border-top:2px solid #ccc;}
-    canvas#particles {position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kaligandaki Law Firm — Maitighar Mandala, Kathmandu</title>
+<meta name="description" content="Kaligandaki Law Firm — Adv. Shiva Prasad Kandel & Adv. Bishnu Kharel. 20+ years of experience. Professional, affordable legal representation in Kathmandu." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf7f0;           /* creamy antique */
+    --paper:#ffffff;
+    --ink:#101214;
+    --muted:#555a60;
+    --accent:#8a6b4a;       /* warm antique brown */
+    --accent-2:#b3936b;
+    --radius:14px;          /* gentle curves */
+    --maxw:1180px;
+    --gap:1.25rem;
+    --ease:cubic-bezier(.2,.9,.2,1);
+  }
+
+  /* Reset */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+  }
+  img{max-width:100%;height:auto;display:block;border-radius:8px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:60; backdrop-filter: blur(6px);
+    background:linear-gradient(rgba(251,247,240,0.7), rgba(251,247,240,0.5));
+    border-bottom:1px solid rgba(16,18,20,0.06);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
+  .brand{display:flex;gap:.75rem;align-items:center}
+  .brand-mark{
+    width:44px;height:44px;border-radius:10px;
+    background:linear-gradient(180deg,var(--paper),#faf5ef);
+    border:2px solid rgba(16,18,20,0.06);
+    display:grid;place-items:center;font-weight:700;color:var(--accent);
+    font-family: 'Libre Baskerville', serif;
+    box-shadow: 0 6px 18px rgba(10,10,10,0.04);
+  }
+  .brand-title{font-family:'Libre Baskerville', serif;font-weight:700;letter-spacing:.6px}
+  nav{display:flex;gap:1.25rem;align-items:center}
+  nav a{padding:.5rem .6rem;border-radius:8px;font-weight:600;color:var(--muted);transition:all .18s var(--ease)}
+  nav a:hover{background:rgba(138,107,74,0.06);color:var(--ink);transform:translateY(-2px)}
+  .cta-primary{background:var(--accent);color:#fff;padding:.55rem .9rem;border-radius:10px;font-weight:700}
+  .cta-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(138,107,74,0.15)}
+
+  /* hamburger */
+  .hamburger{display:none;border:0;background:transparent;padding:.4rem;border-radius:8px}
+  .hamburger svg{width:28px;height:28px}
+  @media (max-width:860px){
+    nav{display:none}
+    .hamburger{display:inline-flex}
+    .mobile-nav{display:none;position:absolute;right:1rem;top:72px;background:var(--paper);border-radius:12px;padding:1rem;box-shadow:0 20px 40px rgba(12,12,12,.08);width:calc(100% - 2rem);max-width:320px}
+    .mobile-nav a{display:block;padding:.6rem 0;color:var(--muted);border-bottom:1px dashed rgba(16,18,20,.04)}
+  }
+
+  /* Hero with curve (SVG) */
+  .hero{
+    position:relative;padding:4.5rem 0 2.5rem;overflow:visible;
+    display:grid;align-items:center;min-height:68vh;
+  }
+  .hero-grid{display:grid;grid-template-columns:1fr 480px;gap:2rem;align-items:center;margin-top:0}
+  @media (max-width:980px){ .hero-grid{grid-template-columns:1fr; } .hero {padding:3.5rem 0} }
+
+  .hero-card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,245,238,0.9));
+    padding:2.25rem;border-radius:18px;border:1px solid rgba(16,18,20,.04);
+    box-shadow: 0 12px 30px rgba(10,10,10,.06);
+  }
+  .kicker{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:rgba(138,107,74,.08);color:var(--accent);font-weight:700;font-size:.82rem}
+  h1{font-family:'Libre Baskerville', serif;font-size:clamp(1.6rem,3vw,2.6rem);margin:.6rem 0 0;line-height:1.05;color:var(--ink)}
+  .lead{color:var(--muted);margin-top:.6rem;font-size:1.02rem}
+
+  /* hero image */
+  .hero-media{justify-self:end}
+  .hero-media .photo{border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(10,10,10,0.08)}
+  .partners{display:flex;gap:.5rem;align-items:center;margin-top:.9rem}
+  .partner-mini{width:44px;height:44px;border-radius:8px;overflow:hidden;border:1px solid rgba(16,18,20,.04)}
+  .partner-meta{font-size:.88rem;color:var(--muted);margin-left:.5rem}
+
+  /* Sections */
+  section.content{padding:3.5rem 0}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem}
+  .section-title{font-family:'Libre Baskerville', serif;font-size:1.4rem}
+  .grid{display:grid;gap:1rem}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:900px){ .grid-3,.grid-2{grid-template-columns:1fr} }
+
+  /* cards */
+  .card{background:var(--paper);padding:1.1rem;border-radius:12px;border:1px solid rgba(16,18,20,0.04);box-shadow:0 10px 24px rgba(10,10,10,0.03)}
+  .area-title{font-weight:700;color:var(--ink);margin-bottom:.5rem}
+  .muted{color:var(--muted);font-size:.95rem}
+
+  /* testimonial */
+  .testimonial{padding:1.25rem;border-left:3px solid var(--accent);background:linear-gradient(180deg,#fff,#fbf7f0)}
+
+  /* booking */
+  form{display:grid;gap:.75rem}
+  label{font-size:.78rem;color:var(--accent);font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+  input,textarea,select{padding:.75rem;border:1px solid rgba(16,18,20,0.06);border-radius:10px;background:#fff}
+  .btn{display:inline-block;padding:.6rem .95rem;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+  .btn.ghost{background:transparent;border:1px solid rgba(16,18,20,.06);color:var(--ink)}
+
+  footer{padding:2.25rem 0;border-top:1px solid rgba(16,18,20,.04);background:transparent}
+  .small{font-size:.9rem;color:var(--muted)}
+
+  /* subtle motion */
+  .fade-up{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+  .inview{opacity:1;transform:none}
+
+  /* utilities */
+  .stack{display:flex;flex-direction:column;gap:.6rem}
+  .row{display:flex;gap:1rem;align-items:center}
+  .pill{padding:.45rem .7rem;border-radius:999px;background:rgba(138,107,74,.08);color:var(--accent);font-weight:700;font-size:.86rem}
+
+  /* tiny responsive tweaks */
+  @media(max-width:460px){ .hero-grid{gap:1rem} .brand-title{font-size:.98rem} .hero-media{justify-self:center} }
+</style>
 </head>
 <body>
-<canvas id="particles"></canvas>
+
 <header>
-  <h1>Kaligandaki Law Firm</h1>
-  <nav>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">KL</div>
+      <div>
+        <div class="brand-title">Kaligandaki Law Firm</div>
+        <div style="font-size:.82rem;color:var(--muted)">Maitighar Mandala · Kathmandu</div>
+      </div>
     </div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#booking">Booking</a></li>
-    </ul>
-  </nav>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="desktop-links">
+        <a href="#about">About</a>
+        <a href="#areas">Practice Areas</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#booking" class="cta-primary">Book Consultation</a>
+      </div>
+
+      <button class="hamburger" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu" onclick="toggleMobile()">
+        <!-- simple svg burger -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 7h18M3 12h18M3 17h18"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- mobile nav -->
+  <div id="mobileNav" class="mobile-nav" style="display:none;">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#areas" onclick="closeMobile()">Practice Areas</a>
+    <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
+    <a href="#booking" onclick="closeMobile()">Book Consultation</a>
+  </div>
 </header>
+
+<!-- HERO with curved divider -->
 <section class="hero">
-  <h2>20+ Years of Legal Expertise</h2>
-  <p>Adv. Shiva Prasad Kandel & Adv. Bishnu Kharel — Professional legal services in the heart of Kathmandu with reasonable pricing and trusted representation.</p>
-</section>
-<section id="about" class="about">
-  <h2>About Us</h2>
-  <p>Kaligandaki Law Firm, located in Maitighar Mandala, Kathmandu, is a dedicated team of professionals providing exceptional legal services. With over two decades of expertise, our lawyers ensure justice and fairness with integrity and professionalism.</p>
-</section>
-<section id="portfolio" class="portfolio">
-  <h2>Practice Areas</h2>
-  <div class="portfolio-items">
-    <div class="portfolio-item">Civil Litigation</div>
-    <div class="portfolio-item">Criminal Defense</div>
-    <div class="portfolio-item">Corporate Law</div>
-    <div class="portfolio-item">Family & Divorce</div>
+  <div class="wrap hero-grid">
+    <div class="hero-card fade-up" id="heroText">
+      <div class="kicker">Legal &amp; Advisory</div>
+      <h1>Trusted Counsel — <span style="color:var(--accent-2)">20+ years</span> of proven legal experience</h1>
+      <p class="lead muted">Kaligandaki Law Firm — Adv. Shiva Prasad Kandel and Adv. Bishnu Kharel. We provide clear documentation, rigorous representation and fair pricing for both individuals and businesses in Kathmandu.</p>
+
+      <div style="margin-top:1.1rem;display:flex;gap:.8rem;flex-wrap:wrap">
+        <a class="btn" href="#booking">Book a Consultation</a>
+        <a class="btn ghost" href="#areas">Our Practice Areas</a>
+      </div>
+
+      <div class="partners" aria-hidden="true" style="margin-top:1rem">
+        <div class="partner-mini"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=400&auto=format&fit=crop&crop=faces" alt="Advocate photo"></div>
+        <div class="partner-mini"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&crop=faces" alt="Advocate photo"></div>
+        <div class="partner-meta"><strong>Adv. Shiva Prasad Kandel</strong><br><span class="small muted">Adv. Bishnu Kharel</span></div>
+      </div>
+    </div>
+
+    <div class="hero-media fade-up" id="heroMedia" aria-hidden="true">
+      <div class="photo">
+        <!-- Replace this image with a real photo of the office or an elegant legal photo -->
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Kaligandaki Law Firm office / legal imagery" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </div>
+
+  <!-- decorative curved SVG at bottom of hero -->
+  <div style="margin-top:1.75rem;">
+    <svg viewBox="0 0 1440 120" width="100%" height="80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,110 480,10 720,40 C960,70 1200,10 1440,40 L1440 120 L0 120 Z" fill="#fff"></path>
+    </svg>
   </div>
 </section>
-<section id="testimonials" class="testimonials">
-  <h2>Testimonials</h2>
-  <blockquote>"The most professional and reliable law firm in Kathmandu. They truly care for their clients."</blockquote>
-  <blockquote>"Experienced, efficient, and dedicated to justice."</blockquote>
+
+<!-- ABOUT -->
+<section id="about" class="content wrap">
+  <div class="section-head">
+    <div>
+      <div class="section-title">About Kaligandaki Law Firm</div>
+      <div class="muted">Professional, principled, and practical legal counsel in Kathmandu.</div>
+    </div>
+    <div class="pill">20+ Years Experience</div>
+  </div>
+
+  <div style="margin-top:1rem" class="grid grid-2">
+    <div class="card fade-up">
+      <p class="muted">Located in Maitighar Mandala, Kaligandaki Law Firm is led by Adv. Shiva Prasad Kandel and Adv. Bishnu Kharel. We combine courtroom experience with careful documentation and sensible pricing.</p>
+      <ul style="margin-top:.9rem;color:var(--muted);line-height:1.6">
+        <li><strong>Transparent pricing</strong> and clear retainers</li>
+        <li><strong>Document-first approach:</strong> contracts, pleadings & schedules</li>
+        <li><strong>Personalized strategy:</strong> litigation & advisory</li>
+      </ul>
+    </div>
+
+    <div class="card fade-up">
+      <h3 style="margin:0 0 .5rem">Office & Contacts</h3>
+      <p class="muted">Maitighar Mandala, Kathmandu, Nepal</p>
+      <p class="muted"><strong>Phone:</strong> +977-01-XXXXXXX</p>
+      <p class="muted"><strong>Email:</strong> office@kaligandaki.law</p>
+      <div style="margin-top:.75rem">
+        <a href="tel:+977010000000" class="btn" style="display:inline-block">Call Office</a>
+      </div>
+    </div>
+  </div>
 </section>
-<section id="booking" class="booking">
-  <h2>Book a Consultation</h2>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" rows="4"></textarea>
-    <button type="submit">Submit</button>
-  </form>
+
+<!-- PRACTICE AREAS -->
+<section id="areas" class="content wrap" style="background:linear-gradient(180deg, #ffffff, #fbf7f0);border-radius:0 0 22px 22px;">
+  <div class="section-head" style="margin-bottom:.6rem">
+    <div class="section-title">Practice Areas</div>
+    <div class="small muted">Comprehensive representation for individuals and businesses</div>
+  </div>
+
+  <div class="grid grid-3" style="margin-top:1rem">
+    <div class="card fade-up">
+      <div class="area-title">Civil &amp; Commercial</div>
+      <div class="muted">Contracts, property, dispute resolution, arbitration.</div>
+    </div>
+    <div class="card fade-up">
+      <div class="area-title">Family &amp; Inheritance</div>
+      <div class="muted">Divorce, guardianship, succession planning, wills.</div>
+    </div>
+    <div class="card fade-up">
+      <div class="area-title">Criminal Defense</div>
+      <div class="muted">Bail, trial counsel, appeals and investigations.</div>
+    </div>
+    <div class="card fade-up">
+      <div class="area-title">Labour &amp; Employment</div>
+      <div class="muted">Contracts, compliance and workplace disputes.</div>
+    </div>
+    <div class="card fade-up">
+      <div class="area-title">Administrative & Writs</div>
+      <div class="muted">Judicial review, statutory interpretation, regulatory matters.</div>
+    </div>
+    <div class="card fade-up">
+      <div class="area-title">IP &amp; Trademarks</div>
+      <div class="muted">Trademark registration, copyright, licensing.</div>
+    </div>
+  </div>
 </section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="content wrap">
+  <div class="section-head">
+    <div class="section-title">What Clients Say</div>
+    <div class="small muted">Real feedback from clients we've helped</div>
+  </div>
+
+  <div class="grid grid-3" style="margin-top:1rem">
+    <div class="card testimonial fade-up">
+      <div style="font-style:italic">“Meticulous preparation — their documentation and court approach made the difference.”</div>
+      <div class="muted" style="margin-top:.6rem">— Corporate Client, Kathmandu</div>
+    </div>
+    <div class="card testimonial fade-up">
+      <div style="font-style:italic">“Clear, honest advice with reasonable fees.”</div>
+      <div class="muted" style="margin-top:.6rem">— Individual Client</div>
+    </div>
+    <div class="card testimonial fade-up">
+      <div style="font-style:italic">“Responsive and professional — recommended.”</div>
+      <div class="muted" style="margin-top:.6rem">— Litigation Client</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="content wrap" style="padding-bottom:4rem">
+  <div class="section-head">
+    <div class="section-title">Book a Consultation</div>
+    <div class="small muted">We reply within 24–48 hours. Confidentiality guaranteed.</div>
+  </div>
+
+  <div style="margin-top:1rem" class="grid grid-2">
+    <div class="card fade-up">
+      <form id="bookingForm" novalidate>
+        <div class="stack">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required placeholder="Your full name">
+
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="name@example.com">
+
+          <label for="phone">Phone (WhatsApp preferred)</label>
+          <input id="phone" name="phone" type="tel" placeholder="98XXXXXXXX">
+
+          <label for="service">Service / Practice area</label>
+          <select id="service" name="service" required>
+            <option value="">Choose</option>
+            <option>Civil & Commercial</option>
+            <option>Family & Inheritance</option>
+            <option>Criminal Defense</option>
+            <option>Labour & Employment</option>
+            <option>Administrative & Writs</option>
+            <option>IP & Trademarks</option>
+          </select>
+
+          <label for="message">Brief about your matter</label>
+          <textarea id="message" name="message" rows="4" placeholder="Brief summary..." required></textarea>
+
+          <div style="display:flex;gap:.6rem;align-items:center;margin-top:.25rem">
+            <button class="btn" type="submit">Send Request</button>
+            <button class="btn ghost" type="reset">Reset</button>
+            <div id="formMsg" class="muted" aria-live="polite" style="margin-left:.5rem"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card fade-up">
+      <h3 style="margin-top:0">Office & Directions</h3>
+      <p class="muted">Visit us at Maitighar Mandala. Appointments recommended — remote consultations available.</p>
+
+      <!-- small inline map placeholder (replace with iframe Google Maps if desired) -->
+      <div style="margin-top:1rem;border-radius:10px;overflow:hidden;border:1px solid rgba(16,18,20,.04)">
+        <img alt="Office location placeholder" src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop">
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <p>&copy; 2025 Kaligandaki Law Firm. All rights reserved.</p>
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap">
+    <div>
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <div class="brand-mark" aria-hidden="true" style="width:36px;height:36px;font-size:.95rem">KL</div>
+        <div>
+          <div style="font-weight:700">Kaligandaki Law Firm</div>
+          <div class="small muted">Adv. Shiva Prasad Kandel · Adv. Bishnu Kharel</div>
+        </div>
+      </div>
+      <div class="small muted" style="margin-top:.6rem">© <span id="year"></span> Kaligandaki Law Firm — All rights reserved.</div>
+    </div>
+
+    <div class="small muted">
+      <div>Office: Maitighar Mandala, Kathmandu</div>
+      <div style="margin-top:.35rem">Phone: +977-01-XXXXXXX · Email: office@kaligandaki.law</div>
+    </div>
+  </div>
 </footer>
+
+<!-- Inline icons/examples (SVGs can be used in cards) -->
 <script>
-  function toggleMenu(){document.querySelector('nav').classList.toggle('active');}
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  let particles = [];
-  for(let i=0;i<60;i++){
-    particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,dx:(Math.random()-0.5)*1,dy:(Math.random()-0.5)*1,r:2});
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  function toggleMobile(){
+    const el = document.getElementById('mobileNav');
+    const btn = document.querySelector('.hamburger');
+    const open = el.style.display === 'block';
+    el.style.display = open ? 'none' : 'block';
+    btn.setAttribute('aria-expanded', String(!open));
   }
-  function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles.forEach(p=>{
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle="#999";
-      ctx.fill();
-      p.x+=p.dx;p.y+=p.dy;
-      if(p.x<0||p.x>canvas.width) p.dx*=-1;
-      if(p.y<0||p.y>canvas.height) p.dy*=-1;
+  function closeMobile(){ document.getElementById('mobileNav').style.display='none'; document.querySelector('.hamburger').setAttribute('aria-expanded','false'); }
+
+  // simple in-view reveal
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('inview');
     });
-    requestAnimationFrame(animate);
-  }
-  animate();
-  window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+  }, {threshold: .12});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+  // lightweight form handler (demo)
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(this);
+    for (const [k,v] of data) { if (!v) { document.getElementById('formMsg').textContent = 'Please complete all fields.'; return; } }
+    // Demo UX: show success message. Implement backend/email integration as next step.
+    document.getElementById('formMsg').textContent = 'Request sent. We will contact you within 24–48 hours.';
+    this.reset();
+  });
+
+  // Accessibility: close mobile menu on outside click
+  document.addEventListener('click', (ev) => {
+    const mobile = document.getElementById('mobileNav');
+    if (!mobile) return;
+    if (mobile.style.display === 'block' && !mobile.contains(ev.target) && !ev.target.closest('.hamburger')) {
+      mobile.style.display = 'none';
+      document.querySelector('.hamburger').setAttribute('aria-expanded','false');
+    }
+  });
 </script>
 </body>
 </html>
